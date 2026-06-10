@@ -1,0 +1,1416 @@
+{
+  "name": "Hiring_Agent_RAG_v2_Webhook",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "e2d2c434-a920-43fa-bb72-5e889085d799",
+      "name": "\u25b6 Click to Run",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -224,
+        864
+      ]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1lq0R_kIA0KSQeoshaftU_qCDRaIainPo35WwAyDx0zI",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1634973259,
+          "mode": "list",
+          "cachedResultName": "Sourcing Quality",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1lq0R_kIA0KSQeoshaftU_qCDRaIainPo35WwAyDx0zI/edit#gid=1634973259"
+        },
+        "options": {}
+      },
+      "id": "215041bc-3df7-48ab-a0c4-a6016541750a",
+      "name": "\ud83d\udccb Read: Sourcing Quality",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [
+        0,
+        48
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ksTW1dzXxzDvXnn2",
+          "name": "Google Sheets OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1lq0R_kIA0KSQeoshaftU_qCDRaIainPo35WwAyDx0zI",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 626753232,
+          "mode": "list",
+          "cachedResultName": "Candidates",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1lq0R_kIA0KSQeoshaftU_qCDRaIainPo35WwAyDx0zI/edit#gid=626753232"
+        },
+        "options": {}
+      },
+      "id": "3a3ce7e5-255a-4a79-9fe2-ffdf26a0a8b5",
+      "name": "\ud83d\udccb Read: Candidates",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [
+        0,
+        240
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ksTW1dzXxzDvXnn2",
+          "name": "Google Sheets OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1lq0R_kIA0KSQeoshaftU_qCDRaIainPo35WwAyDx0zI",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1209927698,
+          "mode": "list",
+          "cachedResultName": "Interviewer Load",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1lq0R_kIA0KSQeoshaftU_qCDRaIainPo35WwAyDx0zI/edit#gid=1209927698"
+        },
+        "options": {}
+      },
+      "id": "ae77a8a8-e4a0-418c-bbb1-a21cfb21e0c8",
+      "name": "\ud83d\udccb Read: Interviewer Load",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [
+        0,
+        432
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ksTW1dzXxzDvXnn2",
+          "name": "Google Sheets OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1lq0R_kIA0KSQeoshaftU_qCDRaIainPo35WwAyDx0zI",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 449546256,
+          "mode": "list",
+          "cachedResultName": "Offer Outcomes",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1lq0R_kIA0KSQeoshaftU_qCDRaIainPo35WwAyDx0zI/edit#gid=449546256"
+        },
+        "options": {}
+      },
+      "id": "76b5dd9d-a574-4b67-bbde-47b4adb64671",
+      "name": "\ud83d\udccb Read: Offer Outcomes",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [
+        0,
+        624
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ksTW1dzXxzDvXnn2",
+          "name": "Google Sheets OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1lq0R_kIA0KSQeoshaftU_qCDRaIainPo35WwAyDx0zI",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 696160204,
+          "mode": "list",
+          "cachedResultName": "Pipeline Events",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1lq0R_kIA0KSQeoshaftU_qCDRaIainPo35WwAyDx0zI/edit#gid=696160204"
+        },
+        "options": {}
+      },
+      "id": "e175970b-a8ee-43a2-9d9d-ef41e7db7d92",
+      "name": "\ud83d\udccb Read: Pipeline Events",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [
+        0,
+        816
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ksTW1dzXxzDvXnn2",
+          "name": "Google Sheets OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Receives 5 inputs \u2014 one from each Google Sheets read node.\n// Each input is a list of row items (not wrapped in .rows).\n// Identify each sheet by its column names.\n\nconst all = $input.all();\nlet sourcing=[], candidates=[], panel=[], offers=[], pipeline=[];\n\nfor (const item of all) {\n  // Google Sheets node returns rows directly as item.json\n  // When aggregated they come as arrays; handle both cases\n  const rows = Array.isArray(item.json) ? item.json :\n               (item.json.rows ? item.json.rows : [item.json]);\n\n  if (!rows.length || !rows[0]) continue;\n  const keys = Object.keys(rows[0]).map(k=>k.toLowerCase()).join(',');\n\n  if      (keys.includes('source_channel') || keys.includes('hire_rate') || keys.includes('screen_rate'))\n    sourcing   = rows;\n  else if (keys.includes('rejection_reason') || keys.includes('current_stage'))\n    candidates = rows;\n  else if (keys.includes('panels_conducted') || keys.includes('feedback_submission'))\n    panel      = rows;\n  else if (keys.includes('offer_id') || keys.includes('comp_offered') || keys.includes('decline_reason'))\n    offers     = rows;\n  else if (keys.includes('event_id') || keys.includes('sla_days') || keys.includes('stage_date'))\n    pipeline   = rows;\n}\n\nconst MAX = 80;\nconst clean = arr => arr.slice(0, MAX).map(r => {\n  const out = {};\n  for (const [k,v] of Object.entries(r))\n    if (v!==null && v!==undefined && String(v).trim()!=='') out[k]=v;\n  return out;\n});\n\nreturn [{ json: {\n  sourcing_data:  clean(sourcing),\n  candidate_data: clean(candidates),\n  panel_data:     clean(panel),\n  offer_data:     clean(offers),\n  pipeline_data:  clean(pipeline),\n  row_counts: {\n    sourcing:   sourcing.length,\n    candidates: candidates.length,\n    panel:      panel.length,\n    offers:     offers.length,\n    pipeline:   pipeline.length,\n  },\n  run_id:     'RUN-' + Date.now(),\n  started_at: new Date().toISOString()\n}}];\n"
+      },
+      "id": "3c561f30-0180-446a-8827-d251e2b76c6b",
+      "name": "\ud83d\uddc2 Combine All Sheets",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        224,
+        432
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "content-type",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"model\": \"gpt-4o\", \"max_tokens\": 1024, \"messages\": [{\"role\": \"system\", \"content\": \"You are the Sourcing Quality Agent in a hiring intelligence system.\\nAnalyse the sourcing data and return ONLY valid JSON, no markdown, no text outside JSON.\\n{\\\"agent\\\":\\\"sourcing_quality\\\",\\\"recommendation\\\":\\\"<specific action with channel names and numbers>\\\",\\\"evidence\\\":[\\\"<point>\\\",\\\"<point>\\\",\\\"<point>\\\"],\\\"confidence_score\\\":<0.0-1.0>,\\\"key_findings\\\":{\\\"best_channel\\\":\\\"<name>\\\",\\\"worst_channel\\\":\\\"<name>\\\",\\\"best_hire_rate\\\":<float>,\\\"worst_hire_rate\\\":<float>,\\\"channels_to_cut\\\":[\\\"<name>\\\"],\\\"yoy_trend\\\":\\\"<improving|declining|stable>\\\"},\\\"cost_of_insight\\\":{\\\"model\\\":\\\"claude-sonnet-4-6\\\",\\\"estimated_tokens\\\":1200,\\\"estimated_usd\\\":0.004},\\\"alternative\\\":\\\"<cheaper approach and trade-off>\\\"}\"}, {\"role\": \"user\", \"content\": \"={{ ($json.rag_context?.sourcing_quality?.chunks_found > 0 ? '=== RETRIEVED KNOWLEDGE BASE CONTEXT ===\\\\n' + $json.rag_context.sourcing_quality.context_text + '\\\\n\\\\n=== END KNOWLEDGE BASE CONTEXT ===\\\\n\\\\nUse the above retrieved context to ground your analysis and recommendations. Reference specific benchmarks, policies, and thresholds from the context where relevant.\\\\n\\\\n' : '') + 'Data from Sourcing Quality (' + ($json.sourcing_data ? $json.sourcing_data.length : 0) + ' rows):\\\\n' + JSON.stringify(($json.sourcing_data||[]).slice(0,60),null,1) + '\\\\n\\\\nAnalyse this hiring data. Return JSON only.' }}\"}]}",
+        "options": {
+          "timeout": 120000
+        }
+      },
+      "id": "2b578a12-0a92-4ff3-9248-3d14b44d1719",
+      "name": "\ud83c\udfaf Sourcing Quality Agent",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        672,
+        48
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "content-type",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer "
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"model\": \"gpt-4o\", \"max_tokens\": 1024, \"messages\": [{\"role\": \"system\", \"content\": \"You are the Rejection Pattern Agent in a hiring intelligence system.\\nAnalyse the candidate rejection data and return ONLY valid JSON, no markdown.\\n{\\\"agent\\\":\\\"rejection_pattern\\\",\\\"recommendation\\\":\\\"<specific action naming stage and role>\\\",\\\"evidence\\\":[\\\"<point>\\\",\\\"<point>\\\",\\\"<point>\\\"],\\\"confidence_score\\\":<0.0-1.0>,\\\"key_findings\\\":{\\\"top_reason\\\":\\\"<reason>\\\",\\\"top_stage\\\":\\\"<stage>\\\",\\\"rejection_rates\\\":{\\\"<stage>\\\":<float>},\\\"high_rejection_roles\\\":[\\\"<role>\\\"],\\\"jd_problem_risk\\\":\\\"<high|medium|low>\\\",\\\"withdrawal_trend\\\":\\\"<increasing|stable|decreasing>\\\"},\\\"cost_of_insight\\\":{\\\"model\\\":\\\"claude-sonnet-4-6\\\",\\\"estimated_tokens\\\":1400,\\\"estimated_usd\\\":0.005},\\\"alternative\\\":\\\"<cheaper approach and trade-off>\\\"}\"}, {\"role\": \"user\", \"content\": \"={{ ($json.rag_context?.rejection_pattern?.chunks_found > 0 ? '=== RETRIEVED KNOWLEDGE BASE CONTEXT ===\\\\n' + $json.rag_context.rejection_pattern.context_text + '\\\\n\\\\n=== END KNOWLEDGE BASE CONTEXT ===\\\\n\\\\nUse the above retrieved context to ground your analysis and recommendations. Reference specific benchmarks, policies, and thresholds from the context where relevant.\\\\n\\\\n' : '') + 'Data from Candidates (' + ($json.candidate_data ? $json.candidate_data.length : 0) + ' rows):\\\\n' + JSON.stringify(($json.candidate_data||[]).slice(0,60),null,1) + '\\\\n\\\\nAnalyse this hiring data. Return JSON only.' }}\"}]}",
+        "options": {
+          "timeout": 120000
+        }
+      },
+      "id": "05eb1661-806f-48a8-bf33-dc342ccefb2b",
+      "name": "\ud83d\udd0d Rejection Pattern Agent",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        672,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "content-type",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer "
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"model\": \"gpt-4o-mini\", \"max_tokens\": 1024, \"messages\": [{\"role\": \"system\", \"content\": \"You are the Panel Load Balancer Agent in a hiring intelligence system.\\nAnalyse the interviewer load data and return ONLY valid JSON, no markdown.\\n{\\\"agent\\\":\\\"panel_load\\\",\\\"recommendation\\\":\\\"<specific action naming interviewers and numbers>\\\",\\\"evidence\\\":[\\\"<point>\\\",\\\"<point>\\\",\\\"<point>\\\"],\\\"confidence_score\\\":<0.0-1.0>,\\\"key_findings\\\":{\\\"overloaded\\\":[{\\\"name\\\":\\\"<n>\\\",\\\"avg_panels\\\":<int>,\\\"delta_vs_avg\\\":<int>}],\\\"underutilised\\\":[\\\"<name>\\\"],\\\"team_avg_panels\\\":<float>,\\\"low_feedback_rate\\\":[\\\"<name>\\\"],\\\"rebalance_moves\\\":[\\\"<move>\\\"]},\\\"cost_of_insight\\\":{\\\"model\\\":\\\"claude-haiku-4-5-20251001\\\",\\\"estimated_tokens\\\":900,\\\"estimated_usd\\\":0.001},\\\"alternative\\\":\\\"<cheaper approach and trade-off>\\\"}\"}, {\"role\": \"user\", \"content\": \"={{ ($json.rag_context?.panel_load?.chunks_found > 0 ? '=== RETRIEVED KNOWLEDGE BASE CONTEXT ===\\\\n' + $json.rag_context.panel_load.context_text + '\\\\n\\\\n=== END KNOWLEDGE BASE CONTEXT ===\\\\n\\\\nUse the above retrieved context to ground your analysis and recommendations. Reference specific benchmarks, policies, and thresholds from the context where relevant.\\\\n\\\\n' : '') + 'Data from Interviewer Load (' + ($json.panel_data ? $json.panel_data.length : 0) + ' rows):\\\\n' + JSON.stringify(($json.panel_data||[]).slice(0,60),null,1) + '\\\\n\\\\nAnalyse this hiring data. Return JSON only.' }}\"}]}",
+        "options": {
+          "timeout": 120000
+        }
+      },
+      "id": "d3c19eaf-bfef-431a-ab13-ee6d71e88ce1",
+      "name": "\u2696\ufe0f  Panel Load Agent",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        672,
+        432
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "content-type",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer "
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"model\": \"gpt-4o\", \"max_tokens\": 1024, \"messages\": [{\"role\": \"system\", \"content\": \"You are the Offer Insights Agent in a hiring intelligence system.\\nAnalyse the offer outcomes data and return ONLY valid JSON, no markdown.\\n{\\\"agent\\\":\\\"offer_insights\\\",\\\"recommendation\\\":\\\"<specific action with dollar amounts and rates>\\\",\\\"evidence\\\":[\\\"<point>\\\",\\\"<point>\\\",\\\"<point>\\\"],\\\"confidence_score\\\":<0.0-1.0>,\\\"key_findings\\\":{\\\"accept_rate\\\":<float>,\\\"top_decline_reason\\\":\\\"<reason>\\\",\\\"avg_comp_delta_usd\\\":<int>,\\\"competing_offer_rate\\\":<float>,\\\"comp_adjustment_needed_usd\\\":<int>,\\\"yoy_accept_trend\\\":\\\"<improving|declining|stable>\\\"},\\\"cost_of_insight\\\":{\\\"model\\\":\\\"claude-sonnet-4-6\\\",\\\"estimated_tokens\\\":1100,\\\"estimated_usd\\\":0.004},\\\"alternative\\\":\\\"<cheaper approach and trade-off>\\\"}\"}, {\"role\": \"user\", \"content\": \"={{ ($json.rag_context?.offer_insights?.chunks_found > 0 ? '=== RETRIEVED KNOWLEDGE BASE CONTEXT ===\\\\n' + $json.rag_context.offer_insights.context_text + '\\\\n\\\\n=== END KNOWLEDGE BASE CONTEXT ===\\\\n\\\\nUse the above retrieved context to ground your analysis and recommendations. Reference specific benchmarks, policies, and thresholds from the context where relevant.\\\\n\\\\n' : '') + 'Data from Offer Outcomes (' + ($json.offer_data ? $json.offer_data.length : 0) + ' rows):\\\\n' + JSON.stringify(($json.offer_data||[]).slice(0,60),null,1) + '\\\\n\\\\nAnalyse this hiring data. Return JSON only.' }}\"}]}",
+        "options": {
+          "timeout": 120000
+        }
+      },
+      "id": "ed1f1805-f4c0-4fc7-9def-47c2c1a611fb",
+      "name": "\ud83d\udcbc Offer Insights Agent",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        672,
+        624
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "content-type",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer "
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"model\": \"gpt-4o-mini\", \"max_tokens\": 1024, \"messages\": [{\"role\": \"system\", \"content\": \"You are the Pipeline Health Agent in a hiring intelligence system.\\nAnalyse the pipeline events data and return ONLY valid JSON, no markdown.\\n{\\\"agent\\\":\\\"pipeline_health\\\",\\\"recommendation\\\":\\\"<specific action naming roles and day counts>\\\",\\\"evidence\\\":[\\\"<point>\\\",\\\"<point>\\\",\\\"<point>\\\"],\\\"confidence_score\\\":<0.0-1.0>,\\\"key_findings\\\":{\\\"avg_time_to_hire_days\\\":<int>,\\\"sla_breach_rate\\\":<float>,\\\"slowest_stage\\\":\\\"<stage>\\\",\\\"breach_roles\\\":[\\\"<role>\\\"],\\\"funnel_rates\\\":{\\\"<stage>\\\":<float>},\\\"long_open_roles\\\":[{\\\"role\\\":\\\"<role>\\\",\\\"avg_days\\\":<int>}]},\\\"cost_of_insight\\\":{\\\"model\\\":\\\"claude-haiku-4-5-20251001\\\",\\\"estimated_tokens\\\":1000,\\\"estimated_usd\\\":0.001},\\\"alternative\\\":\\\"<cheaper approach and trade-off>\\\"}\"}, {\"role\": \"user\", \"content\": \"={{ ($json.rag_context?.pipeline_health?.chunks_found > 0 ? '=== RETRIEVED KNOWLEDGE BASE CONTEXT ===\\\\n' + $json.rag_context.pipeline_health.context_text + '\\\\n\\\\n=== END KNOWLEDGE BASE CONTEXT ===\\\\n\\\\nUse the above retrieved context to ground your analysis and recommendations. Reference specific benchmarks, policies, and thresholds from the context where relevant.\\\\n\\\\n' : '') + 'Data from Pipeline Events (' + ($json.pipeline_data ? $json.pipeline_data.length : 0) + ' rows):\\\\n' + JSON.stringify(($json.pipeline_data||[]).slice(0,60),null,1) + '\\\\n\\\\nAnalyse this hiring data. Return JSON only.' }}\"}]}",
+        "options": {
+          "timeout": 120000
+        }
+      },
+      "id": "ad1733b2-d775-4dd7-8597-874997a22982",
+      "name": "\ud83d\udea6 Pipeline Health Agent",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        672,
+        816
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst item    = $input.first().json;\nconst content = item.choices || [];\nconst rawText = content.length ? (content[0].message?.content||'') : '';\nconst usage   = item.usage || {};\nlet parsed = {};\ntry {\n  parsed = JSON.parse(rawText.replace(/```json\\n?/g,'').replace(/```\\n?/g,'').trim());\n} catch(e) {\n  parsed = { agent:'sourcing_quality', parse_error:true, raw_text:rawText.slice(0,300),\n             recommendation:'JSON parse error', evidence:[], confidence_score:0,\n             key_findings:{}, cost_of_insight:{}, alternative:'' };\n}\nlet ctx = {};\ntry { ctx = $('\ud83d\uddc2 Combine All Sheets').first().json; } catch(e){}\nreturn [{ json: {\n  ...parsed,\n  _tokens_in:    usage.prompt_tokens  || 0,\n  _tokens_out:   usage.completion_tokens || 0,\n  _tokens_total: (usage.prompt_tokens||0)+(usage.completion_tokens||0),\n  run_id:        ctx.run_id    || '',\n  started_at:    ctx.started_at|| '',\n}}];\n"
+      },
+      "id": "5ca9bf16-aadc-4072-9330-1770b6505d85",
+      "name": "Parse Sourcing Output",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        896,
+        48
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst item    = $input.first().json;\nconst content = item.choices || [];\nconst rawText = content.length ? (content[0].message?.content||'') : '';\nconst usage   = item.usage || {};\nlet parsed = {};\ntry {\n  parsed = JSON.parse(rawText.replace(/```json\\n?/g,'').replace(/```\\n?/g,'').trim());\n} catch(e) {\n  parsed = { agent:'rejection_pattern', parse_error:true, raw_text:rawText.slice(0,300),\n             recommendation:'JSON parse error', evidence:[], confidence_score:0,\n             key_findings:{}, cost_of_insight:{}, alternative:'' };\n}\nlet ctx = {};\ntry { ctx = $('\ud83d\uddc2 Combine All Sheets').first().json; } catch(e){}\nreturn [{ json: {\n  ...parsed,\n  _tokens_in:    usage.prompt_tokens  || 0,\n  _tokens_out:   usage.completion_tokens || 0,\n  _tokens_total: (usage.prompt_tokens||0)+(usage.completion_tokens||0),\n  run_id:        ctx.run_id    || '',\n  started_at:    ctx.started_at|| '',\n}}];\n"
+      },
+      "id": "5d8715c6-978a-4365-b07a-3237ef76f9f6",
+      "name": "Parse Rejection Output",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        896,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst item    = $input.first().json;\nconst content = item.choices || [];\nconst rawText = content.length ? (content[0].message?.content||'') : '';\nconst usage   = item.usage || {};\nlet parsed = {};\ntry {\n  parsed = JSON.parse(rawText.replace(/```json\\n?/g,'').replace(/```\\n?/g,'').trim());\n} catch(e) {\n  parsed = { agent:'panel_load', parse_error:true, raw_text:rawText.slice(0,300),\n             recommendation:'JSON parse error', evidence:[], confidence_score:0,\n             key_findings:{}, cost_of_insight:{}, alternative:'' };\n}\nlet ctx = {};\ntry { ctx = $('\ud83d\uddc2 Combine All Sheets').first().json; } catch(e){}\nreturn [{ json: {\n  ...parsed,\n  _tokens_in:    usage.prompt_tokens  || 0,\n  _tokens_out:   usage.completion_tokens || 0,\n  _tokens_total: (usage.prompt_tokens||0)+(usage.completion_tokens||0),\n  run_id:        ctx.run_id    || '',\n  started_at:    ctx.started_at|| '',\n}}];\n"
+      },
+      "id": "e219031b-f491-4fdf-bec1-6107c90b02ff",
+      "name": "Parse Panel Output",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        896,
+        432
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst item    = $input.first().json;\nconst content = item.choices || [];\nconst rawText = content.length ? (content[0].message?.content||'') : '';\nconst usage   = item.usage || {};\nlet parsed = {};\ntry {\n  parsed = JSON.parse(rawText.replace(/```json\\n?/g,'').replace(/```\\n?/g,'').trim());\n} catch(e) {\n  parsed = { agent:'offer_insights', parse_error:true, raw_text:rawText.slice(0,300),\n             recommendation:'JSON parse error', evidence:[], confidence_score:0,\n             key_findings:{}, cost_of_insight:{}, alternative:'' };\n}\nlet ctx = {};\ntry { ctx = $('\ud83d\uddc2 Combine All Sheets').first().json; } catch(e){}\nreturn [{ json: {\n  ...parsed,\n  _tokens_in:    usage.prompt_tokens  || 0,\n  _tokens_out:   usage.completion_tokens || 0,\n  _tokens_total: (usage.prompt_tokens||0)+(usage.completion_tokens||0),\n  run_id:        ctx.run_id    || '',\n  started_at:    ctx.started_at|| '',\n}}];\n"
+      },
+      "id": "42ef4144-04e0-44a8-9eff-94b5a995e571",
+      "name": "Parse Offer Output",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        896,
+        624
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst item    = $input.first().json;\nconst content = item.choices || [];\nconst rawText = content.length ? (content[0].message?.content||'') : '';\nconst usage   = item.usage || {};\nlet parsed = {};\ntry {\n  parsed = JSON.parse(rawText.replace(/```json\\n?/g,'').replace(/```\\n?/g,'').trim());\n} catch(e) {\n  parsed = { agent:'pipeline_health', parse_error:true, raw_text:rawText.slice(0,300),\n             recommendation:'JSON parse error', evidence:[], confidence_score:0,\n             key_findings:{}, cost_of_insight:{}, alternative:'' };\n}\nlet ctx = {};\ntry { ctx = $('\ud83d\uddc2 Combine All Sheets').first().json; } catch(e){}\nreturn [{ json: {\n  ...parsed,\n  _tokens_in:    usage.prompt_tokens  || 0,\n  _tokens_out:   usage.completion_tokens || 0,\n  _tokens_total: (usage.prompt_tokens||0)+(usage.completion_tokens||0),\n  run_id:        ctx.run_id    || '',\n  started_at:    ctx.started_at|| '',\n}}];\n"
+      },
+      "id": "5548bcb3-00ef-4b79-8618-c08fc87f5ee0",
+      "name": "Parse Pipeline Output",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        896,
+        816
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "f9ff552f-75f1-4fe6-8bf1-b995653996ba",
+      "name": "\ud83d\udd00 Merge All Outputs",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2,
+      "position": [
+        1120,
+        432
+      ]
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "agent_results",
+        "options": {}
+      },
+      "id": "dbcceffb-8a7a-4ce6-8bdf-10923b059efa",
+      "name": "\ud83d\udce6 Bundle Results",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        1344,
+        432
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "content-type",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer "
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"model\": \"gpt-4o\", \"max_tokens\": 512, \"messages\": [{\"role\": \"system\", \"content\": \"You are the Evaluation Agent \\u2014 quality gate for hiring intelligence outputs.\\nScore each agent output and return ONLY valid JSON, no markdown.\\n{\\\"overall_quality\\\":<0-10>,\\\"per_agent\\\":{\\\"sourcing_quality\\\":<0-10>,\\\"rejection_pattern\\\":<0-10>,\\\"panel_load\\\":<0-10>,\\\"offer_insights\\\":<0-10>,\\\"pipeline_health\\\":<0-10>},\\\"approved\\\":<true|false>,\\\"flags\\\":[\\\"<concern if any>\\\"],\\\"eval_notes\\\":\\\"<one sentence>\\\"}\\nApprove if overall_quality>=6. Score 10=no risk/perfect, 0=hallucinated/useless.\"}, {\"role\": \"user\", \"content\": \"={{ 'Evaluate these agent outputs:\\\\n\\\\n' + JSON.stringify($json.agent_results.map(r=>({agent:r.agent,recommendation:r.recommendation,evidence:r.evidence,confidence_score:r.confidence_score})),null,2) + '\\\\n\\\\nScore all agents. Return JSON only.' }}\"}]}",
+        "options": {
+          "timeout": 120000
+        }
+      },
+      "id": "e74da208-910c-4d1d-b23d-31498d19b818",
+      "name": "\ud83d\udee1\ufe0f  Evaluation Agent",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        1568,
+        336
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst item    = $input.first().json;\nconst content = item.choices || [];\nconst raw     = content.length ? (content[0].message?.content || '') : '';\n\nlet ev = {};\ntry {\n  const cleaned = raw.replace(/```json\\n?/g,'').replace(/```\\n?/g,'').trim();\n  const parsed  = JSON.parse(cleaned);\n  // Normalize scores: if overall_quality > 1, it's on 0-10 scale\n  const oq = parsed.overall_quality || 0;\n  ev = {\n    overall_quality: oq,   // keep raw 0-10, Streamlit normalizes\n    per_agent:       parsed.per_agent || {},\n    approved:        parsed.approved !== undefined ? parsed.approved : (oq >= 6),\n    flags:           parsed.flags || [],\n    eval_notes:      parsed.eval_notes || parsed.notes || '',\n  };\n} catch(e) {\n  ev = {\n    overall_quality: 0,\n    per_agent: {},\n    approved: false,\n    flags: ['parse error'],\n    eval_notes: 'parse failed: ' + e.message + ' | raw: ' + raw.slice(0, 100),\n  };\n}\n\nlet up = {};\ntry { up = $('\ud83d\udce6 Bundle Results').first().json; } catch(e) {}\n\nreturn [{ json: { ...up, evaluation: ev } }];\n"
+      },
+      "id": "424200c5-8a8f-4be9-b2b5-52a61698ba41",
+      "name": "Parse Eval Output",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1792,
+        336
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst item   = $input.first().json;\nconst agents = item.agent_results || [];\n\n// Exact model used per agent (from workflow HTTP nodes)\nconst AGENT_MODELS = {\n  'sourcing_quality':  'gpt-4o',\n  'rejection_pattern': 'gpt-4o',\n  'panel_load':        'gpt-4o-mini',\n  'offer_insights':    'gpt-4o',\n  'pipeline_health':   'gpt-4o-mini',\n};\n\n// OpenAI pricing per 1K tokens (GPT-4o = $2.50/1M in, $10/1M out)\nconst COST = {\n  'gpt-4o':      { i: 0.0025,  o: 0.010  },\n  'gpt-4o-mini': { i: 0.00015, o: 0.0006 },\n};\n\nlet total = 0, mini_total = 0;\n\nconst per = agents.map(a => {\n  const agentKey = (a.agent || '').toLowerCase().replace(/ /g,'_');\n  const model    = AGENT_MODELS[agentKey] || 'gpt-4o';\n  \n  // Try to get real token counts; fallback to typical estimates\n  const ti = (a._tokens_in  && a._tokens_in  > 0) ? a._tokens_in  : 1200;\n  const to = (a._tokens_out && a._tokens_out > 0) ? a._tokens_out : 350;\n\n  const tc   = COST[model]          || COST['gpt-4o'];\n  const mc   = COST['gpt-4o-mini'];\n  const act  = (ti / 1000) * tc.i  + (to / 1000) * tc.o;\n  const mact = (ti / 1000) * mc.i  + (to / 1000) * mc.o;\n\n  total      += act;\n  mini_total += mact;\n\n  return {\n    agent:       a.agent,\n    model:       model,\n    tokens_in:   ti,\n    tokens_out:  to,\n    actual_usd:  act.toFixed(5),\n    mini_equiv:  mact.toFixed(5),\n    tokens:      ti + to,\n  };\n});\n\nreturn [{ json: { ...item,\n  optimization: {\n    per_agent_costs:   per,\n    total_actual_usd:  total.toFixed(5),\n    haiku_equiv_usd:   mini_total.toFixed(5),\n    potential_savings: Math.max(0, total - mini_total).toFixed(5),\n    tips: [\n      'Panel Load + Pipeline Health use GPT-4o-mini (~94% cheaper per token)',\n      'Cache repeated Pinecone RAG queries to reduce embedding costs',\n      'Limit Google Sheets payload to top 50 rows for faster, cheaper runs',\n    ],\n  },\n}}];\n"
+      },
+      "id": "49020f3b-3d51-4b55-b81c-a467c7be3ed8",
+      "name": "\u26a1 Optimization Agent",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1792,
+        528
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst inputs = $input.all();\nlet evData = {}, optimData = {}, base = {};\n\nfor (const inp of inputs) {\n  if (inp.json.evaluation)   evData    = inp.json;\n  if (inp.json.optimization) optimData = inp.json;\n  if (inp.json.agent_results && !base.agent_results) base = inp.json;\n}\n\nconst agents = evData.agent_results || optimData.agent_results || base.agent_results || [];\nconst ev     = evData.evaluation    || {};\nconst optim  = optimData.optimization || {};\n\n// \u2500\u2500 Always calculate cost inline from actual model used \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nconst AGENT_MODELS = {\n  'sourcing_quality':  'gpt-4o',\n  'rejection_pattern': 'gpt-4o',\n  'panel_load':        'gpt-4o-mini',\n  'offer_insights':    'gpt-4o',\n  'pipeline_health':   'gpt-4o-mini',\n};\nconst COST = {\n  'gpt-4o':      { i: 0.0025,  o: 0.010  },\n  'gpt-4o-mini': { i: 0.00015, o: 0.0006 },\n};\n\nlet totalCost = 0;\nlet miniTotal = 0;\n\nconst perAgentCosts = agents.map(a => {\n  const key   = (a.agent || '').toLowerCase().replace(/ /g,'_');\n  const model = AGENT_MODELS[key] || 'gpt-4o';\n  const tc    = COST[model] || COST['gpt-4o'];\n  const mc    = COST['gpt-4o-mini'];\n  // Use real tokens if available, else typical estimate\n  const ti    = (a._tokens_in  > 0) ? a._tokens_in  : 1200;\n  const to    = (a._tokens_out > 0) ? a._tokens_out : 350;\n  const act   = (ti/1000)*tc.i + (to/1000)*tc.o;\n  const mini  = (ti/1000)*mc.i + (to/1000)*mc.o;\n  totalCost  += act;\n  miniTotal  += mini;\n  return {\n    agent:      a.agent,\n    model:      model,\n    tokens_in:  ti,\n    tokens_out: to,\n    actual_usd: act.toFixed(5),\n    mini_equiv: mini.toFixed(5),\n  };\n});\n\n// Also add eval agent cost\nconst evalTi   = 800, evalTo = 200;\nconst evalCost = (evalTi/1000)*COST['gpt-4o'].i + (evalTo/1000)*COST['gpt-4o'].o;\ntotalCost += evalCost;\nperAgentCosts.push({\n  agent: 'evaluation', model: 'gpt-4o',\n  tokens_in: evalTi, tokens_out: evalTo,\n  actual_usd: evalCost.toFixed(5), mini_equiv: '0.00014',\n});\n\nconst savings = Math.max(0, totalCost - miniTotal);\n\n// Use optimization node data if it actually has values, else use inline calc\nconst finalCosts = {\n  total_usd:         (optim.total_actual_usd && parseFloat(optim.total_actual_usd) > 0)\n                       ? optim.total_actual_usd\n                       : totalCost.toFixed(5),\n  haiku_equiv_usd:   optim.haiku_equiv_usd   || miniTotal.toFixed(5),\n  potential_savings: optim.potential_savings  || savings.toFixed(5),\n  per_agent:         (optim.per_agent_costs && optim.per_agent_costs.length > 0)\n                       ? optim.per_agent_costs\n                       : perAgentCosts,\n  tips: optim.tips || [\n    'Panel Load + Pipeline Health use GPT-4o-mini (~94% cheaper per token)',\n    'Cache repeated Pinecone RAG queries to reduce embedding costs',\n    'Limit payload to top 50 rows for faster, cheaper runs',\n  ],\n};\n\nreturn [{ json: {\n  run_id:       base.run_id || evData.run_id || new Date().getTime().toString(),\n  completed_at: new Date().toISOString(),\n  status:       'complete',\n  agents_run:   agents.length,\n\n  insights: agents.map(a => ({\n    agent:            a.agent,\n    recommendation:   a.recommendation   || '',\n    confidence_score: a.confidence_score || 0,\n    evidence:         a.evidence         || [],\n    key_findings:     a.key_findings     || {},\n    alternative:      a.alternative      || '',\n    _tokens_in:       a._tokens_in       || 0,\n    _tokens_out:      a._tokens_out      || 0,\n  })),\n\n  evaluation: {\n    overall_quality: ev.overall_quality || 0,\n    approved:        ev.approved        !== undefined ? ev.approved : false,\n    per_agent:       ev.per_agent       || {},\n    flags:           ev.flags           || [],\n    notes:           ev.eval_notes      || ev.notes || '',\n  },\n\n  cost_summary: finalCosts,\n\n  quick_read: agents.map(a =>\n    `[${(a.agent||'').toUpperCase().replace(/_/g,' ')}]\\n` +\n    `Recommendation: ${a.recommendation||'none'}\\n` +\n    `Confidence: ${((a.confidence_score||0)*100).toFixed(0)}%\\n`\n  ).join('\\n'),\n}}];\n"
+      },
+      "id": "d34fd551-8893-4a0a-9e2b-16b1a5bf55c9",
+      "name": "\u2705 Final Results Summary",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2016,
+        432
+      ]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -224,
+        1504
+      ],
+      "id": "4c304adf-57b8-431a-8b6d-7ef1fbf73e55",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "resource": "fileFolder",
+        "returnAll": true,
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "value": "1Ex3NhnVWJclA3zTLS_UI_Et762DBjEa5",
+            "mode": "list",
+            "cachedResultName": "Rag_KB_Docs_External",
+            "cachedResultUrl": "https://drive.google.com/drive/folders/1Ex3NhnVWJclA3zTLS_UI_Et762DBjEa5"
+          }
+        },
+        "options": {
+          "fields": [
+            "*"
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        0,
+        1504
+      ],
+      "id": "697cc30e-1cca-4a0a-bc7c-2e03782f351c",
+      "name": "Google Drive (List)",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "bn2WEVZZ1IH2CHvf",
+          "name": "Google Drive OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.id }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        224,
+        1504
+      ],
+      "id": "cf8af7d3-db30-4c87-b56f-1e6ee42b6815",
+      "name": "Google Drive (Download)",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "bn2WEVZZ1IH2CHvf",
+          "name": "Google Drive OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "xlsx",
+        "options": {
+          "headerRow": true
+        }
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        752,
+        1296
+      ],
+      "id": "30330cac-c0c8-45b4-b45c-220fdace77b3",
+      "name": "Extract from File"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all().map(item => {\n  const row = item.json;\n\n  // --- START FIX: Convert Excel Date to Readable String ---\n  if (row.Week_Start_Date && typeof row.Week_Start_Date === 'number') {\n      // Excel counts days from 1900. JavaScript counts from 1970.\n      // 25569 is the number of days between 1900 and 1970.\n      const jsDate = new Date((row.Week_Start_Date - 25569) * 86400 * 1000);\n      // Convert to \"YYYY-MM-DD\" format (e.g., \"2022-01-03\")\n      row.Week_Start_Date = jsDate.toISOString().split('T')[0];\n  }\n\n  // Convert row object to readable string\n  const str = Object.keys(row).map(k => `${k}: ${row[k]}`).join(\", \");\n  \n  // Convert to Base64 to mimic a file\n  const b64 = Buffer.from(str).toString('base64');\n\n  return {\n    json: {\n      text_content: b64,\n      ...row\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1040,
+        1296
+      ],
+      "id": "056ebf00-4db9-4cc7-b1fc-68f5ca1ddbef",
+      "name": "Format Rows to Text"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{$json.fileExtension}}",
+                    "rightValue": "xlsx",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "4fbe6f07-af41-4969-827c-f84070605859"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "bf65c595-a307-44b9-aa75-005ab2a9a223",
+                    "leftValue": "={{$json.fileExtension}}",
+                    "rightValue": "^(pdf|docx|txt)$",
+                    "operator": {
+                      "type": "string",
+                      "operation": "regex"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        448,
+        1504
+      ],
+      "id": "72262ad9-995b-4173-ac88-2a1fddc8da80",
+      "name": "Switch (Filter Types)"
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "=text_content",
+        "options": {
+          "fileName": "converted_row.txt"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        1264,
+        1296
+      ],
+      "id": "ed664cf0-3de4-4a8c-854d-189c4ad17438",
+      "name": "Convert to File"
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "pineconeIndex": {
+          "__rl": true,
+          "value": "v1",
+          "mode": "list",
+          "cachedResultName": "v1"
+        },
+        "embeddingBatchSize": 50,
+        "options": {
+          "pineconeNamespace": "Production"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "typeVersion": 1.3,
+      "position": [
+        1520,
+        1296
+      ],
+      "id": "a4337402-26e7-45fd-b16e-93f614905f4e",
+      "name": "Pinecone Vector Store (Excel)",
+      "credentials": {
+        "pineconeApi": {
+          "id": "D2IxbLcooGmrrKfv",
+          "name": "PineconeApi account 10"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "dataType": "binary",
+        "textSplittingMode": "custom",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1.1,
+      "position": [
+        1616,
+        1520
+      ],
+      "id": "e0447a7a-e6ab-4f7b-8d77-b83bdc4aa467",
+      "name": "Data Loader (Excel)"
+    },
+    {
+      "parameters": {
+        "model": "text-embedding-3-large",
+        "options": {
+          "dimensions": 1024
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        1488,
+        1520
+      ],
+      "id": "1f8b5edc-ff6e-4c34-953e-1be8fdd7b576",
+      "name": "Embeddings OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "BOeDLohnJH8ZEDHJ",
+          "name": "OpenAi account 9"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "pineconeIndex": {
+          "__rl": true,
+          "value": "hiring",
+          "mode": "list",
+          "cachedResultName": "hiring"
+        },
+        "embeddingBatchSize": 50,
+        "options": {
+          "pineconeNamespace": ""
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "typeVersion": 1.3,
+      "position": [
+        688,
+        1696
+      ],
+      "id": "a30b7aeb-e35e-4383-82b7-36c649e6b8e1",
+      "name": "Pinecone Vector Store (Docs)",
+      "credentials": {
+        "pineconeApi": {
+          "id": "TfE5AiNsePZX903W",
+          "name": "Pinecone account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "dataType": "binary",
+        "textSplittingMode": "custom",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1.1,
+      "position": [
+        672,
+        1920
+      ],
+      "id": "29b1c900-370e-4a8b-b371-1ec5e826ce9e",
+      "name": "Default Data Loader"
+    },
+    {
+      "parameters": {
+        "chunkSize": 200,
+        "chunkOverlap": 20,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "typeVersion": 1,
+      "position": [
+        752,
+        2128
+      ],
+      "id": "3d983d1a-ac54-4688-946b-35d3013d5225",
+      "name": "Recursive Character Text Splitter (Docs)"
+    },
+    {
+      "parameters": {
+        "content": "## PART 1: The \"Knowledge Factory\" For Hiring Intelligence System (Ingestion)\n**Goal:** Teach the AI about our Historical hiring data.\n\n1. **Trigger:** Wake up and check Google Drive.\n2. **Switch (Router):** Sort files by type.\n   - **Excel:** Needs special \"Row-to-Text\" conversion.\n   - **Docs (PDF/Word):** Can be read natively.\n3. **Vector Store:** Save everything into Pinecone as \"Embeddings\" (Mathematical meaning).",
+        "height": 996,
+        "width": 2208,
+        "color": 4
+      },
+      "id": "036074fd-fc8b-4969-888a-fa4fcd20919b",
+      "name": "Sticky Note (Ingestion)",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -288,
+        1280
+      ]
+    },
+    {
+      "parameters": {
+        "chunkSize": 200,
+        "chunkOverlap": 20,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "typeVersion": 1,
+      "position": [
+        1696,
+        1728
+      ],
+      "id": "36ca5aff-3eaa-44a5-a6fa-d3d45688f202",
+      "name": "Recursive Character Text Splitter"
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\n// RAG RETRIEVAL NODE\n// Queries the Pinecone knowledge base BEFORE agents run.\n// Uses the same indexes and credentials as the ingestion flow:\n//   \u2022 \"hiring\"  index \u2192 RAG docs (benchmarks, policies, rubrics)\n//   \u2022 \"v1\"      index \u2192 Excel data (candidates, pipeline, offers, etc.)\n// Retrieves top-5 relevant chunks per agent and injects context\n// into each agent's prompt for grounded, evidence-based outputs.\n// \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\n\nconst OPENAI_KEY     = $vars.OPENAI_API_KEY;\nconst PINECONE_KEY   = $vars.PINECONE_API_KEY;\n\n// Index hosts \u2014 set these in n8n Variables after creating indexes\n// Find in app.pinecone.io \u2192 your index \u2192 \"Host\" field\nconst HOST_DOCS  = $vars.PINECONE_HOST_DOCS  || '';   // \"hiring\" index host\nconst HOST_EXCEL = $vars.PINECONE_HOST_EXCEL || '';   // \"v1\" index host\n\nconst EMBED_MODEL = 'text-embedding-3-large';\nconst TOP_K       = 5;\nconst MIN_SCORE   = 0.30;\n\n// Per-agent semantic queries \u2014 tuned to match the knowledge base content\nconst AGENT_QUERIES = {\n  sourcing_quality:  'best sourcing channels hire rate cost per hire LinkedIn referral channel strategy benchmark performance',\n  rejection_pattern: 'rejection reasons candidate drop-off JD mismatch withdrawal stage failure technical screen skills',\n  panel_load:        'interviewer panel count overloaded burnout feedback rate rebalance monthly capacity thresholds',\n  offer_insights:    'offer acceptance decline compensation gap comp delta competing offer signing bonus salary bands',\n  pipeline_health:   'time to hire SLA breach funnel conversion bottleneck stage escalation TTF target days open roles',\n};\n\n// \u2500\u2500 Helper: embed a text string \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nasync function embed(text) {\n  const res = await fetch('https://api.openai.com/v1/embeddings', {\n    method: 'POST',\n    headers: {\n      'Content-Type': 'application/json',\n      'Authorization': `Bearer ${OPENAI_KEY}`,\n    },\n    body: JSON.stringify({\n      model: EMBED_MODEL,\n      input: [text],\n      dimensions: 1024,\n    }),\n  });\n  const data = await res.json();\n  if (!res.ok) throw new Error(`OpenAI embed error: ${JSON.stringify(data)}`);\n  return data.data[0].embedding;\n}\n\n// \u2500\u2500 Helper: query one Pinecone index \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nasync function queryPinecone(host, vector, filter, namespace) {\n  if (!host) return [];   // skip if host not configured\n  const body = {\n    vector, topK: TOP_K, includeMetadata: true,\n  };\n  if (filter)    body.filter    = filter;\n  if (namespace) body.namespace = namespace;\n\n  const res = await fetch(`${host}/query`, {\n    method: 'POST',\n    headers: {\n      'Content-Type': 'application/json',\n      'Api-Key': PINECONE_KEY,\n    },\n    body: JSON.stringify(body),\n  });\n  const data = await res.json();\n  if (!res.ok) return [];   // fail gracefully\n  return (data.matches || []).filter(m => m.score >= MIN_SCORE);\n}\n\n// \u2500\u2500 Helper: format matches into readable context string \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nfunction formatContext(matches, sourceLabel) {\n  return matches.map(m => {\n    const src  = m.metadata?.source || m.metadata?.doc_name || sourceLabel;\n    const text = m.metadata?.text || m.metadata?.pageContent || '';\n    return `[${src} | score:${Math.round(m.score*100)/100}]\\n${text.slice(0,600)}`;\n  }).join('\\n\\n---\\n\\n');\n}\n\n// \u2500\u2500 Main: retrieve context for each agent \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nconst item = $input.first().json;\nconst rag_context = {};\n\nfor (const [agentKey, query] of Object.entries(AGENT_QUERIES)) {\n  try {\n    const qVec = await embed(query);\n\n    // Query docs KB (benchmarks, policies, rubrics)\n    // Filter to agent-specific and cross-agent docs\n    const docsMatches = await queryPinecone(\n      HOST_DOCS, qVec,\n      null,   // no filter \u2014 search all docs\n      null    // no namespace on docs index\n    );\n\n    // Query Excel KB (actual hiring data already ingested)\n    const excelMatches = await queryPinecone(\n      HOST_EXCEL, qVec,\n      null,\n      'Production'\n    );\n\n    const docsCtx  = formatContext(docsMatches,  'Knowledge Base');\n    const excelCtx = formatContext(excelMatches, 'Excel Data');\n\n    // Combine both sources\n    const parts = [];\n    if (docsCtx.trim())  parts.push(`=== POLICY & BENCHMARK DOCUMENTS ===\\n${docsCtx}`);\n    if (excelCtx.trim()) parts.push(`=== HISTORICAL EXCEL DATA ===\\n${excelCtx}`);\n\n    const combined = parts.join('\\n\\n');\n    const total    = docsMatches.length + excelMatches.length;\n\n    rag_context[agentKey] = {\n      context_text:  combined,\n      chunks_found:  total,\n      docs_chunks:   docsMatches.length,\n      excel_chunks:  excelMatches.length,\n    };\n\n  } catch (err) {\n    // Never block the pipeline \u2014 fail gracefully with empty context\n    rag_context[agentKey] = {\n      context_text: '',\n      chunks_found: 0,\n      error: err.message,\n    };\n  }\n}\n\n// Pass everything downstream \u2014 agents will read rag_context[agentKey].context_text\nreturn [{ json: { ...item, rag_context } }];\n"
+      },
+      "id": "12102f4c-f9d4-429e-92b4-688448d307f9",
+      "name": "\ud83d\udcda RAG Retrieval",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        448,
+        432
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "hiring-rag-agent",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "d03a6013-16f1-4241-9c85-ad1d04bac46a",
+      "name": "\ud83c\udf10 Webhook Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -224,
+        0
+      ],
+      "webhookId": "422c894f-20b8-4b5d-95b0-00e55d1eb5fe"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify($json) }}",
+        "options": {
+          "responseCode": 200,
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Access-Control-Allow-Origin",
+                "value": "*"
+              },
+              {
+                "name": "Access-Control-Allow-Methods",
+                "value": "POST, OPTIONS"
+              },
+              {
+                "name": "Access-Control-Allow-Headers",
+                "value": "Content-Type"
+              }
+            ]
+          }
+        }
+      },
+      "id": "28c9d323-32ce-4194-b47c-91bf679126ab",
+      "name": "\ud83d\udce4 Webhook Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        2240,
+        432
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "\u25b6 Click to Run": {
+      "main": [
+        [
+          {
+            "node": "\ud83d\udccb Read: Sourcing Quality",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "\ud83d\udccb Read: Candidates",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "\ud83d\udccb Read: Interviewer Load",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "\ud83d\udccb Read: Offer Outcomes",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "\ud83d\udccb Read: Pipeline Events",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83d\uddc2 Combine All Sheets": {
+      "main": [
+        [
+          {
+            "node": "\ud83d\udcda RAG Retrieval",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83c\udfaf Sourcing Quality Agent": {
+      "main": [
+        [
+          {
+            "node": "Parse Sourcing Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83d\udd0d Rejection Pattern Agent": {
+      "main": [
+        [
+          {
+            "node": "Parse Rejection Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u2696\ufe0f  Panel Load Agent": {
+      "main": [
+        [
+          {
+            "node": "Parse Panel Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83d\udcbc Offer Insights Agent": {
+      "main": [
+        [
+          {
+            "node": "Parse Offer Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83d\udea6 Pipeline Health Agent": {
+      "main": [
+        [
+          {
+            "node": "Parse Pipeline Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Sourcing Output": {
+      "main": [
+        [
+          {
+            "node": "\ud83d\udd00 Merge All Outputs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Rejection Output": {
+      "main": [
+        [
+          {
+            "node": "\ud83d\udd00 Merge All Outputs",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "\ud83d\udd00 Merge All Outputs": {
+      "main": [
+        [
+          {
+            "node": "\ud83d\udce6 Bundle Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83d\udce6 Bundle Results": {
+      "main": [
+        [
+          {
+            "node": "\ud83d\udee1\ufe0f  Evaluation Agent",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "\u26a1 Optimization Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83d\udee1\ufe0f  Evaluation Agent": {
+      "main": [
+        [
+          {
+            "node": "Parse Eval Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Eval Output": {
+      "main": [
+        [
+          {
+            "node": "\u2705 Final Results Summary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83d\udccb Read: Sourcing Quality": {
+      "main": [
+        [
+          {
+            "node": "\ud83d\uddc2 Combine All Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83d\udccb Read: Candidates": {
+      "main": [
+        [
+          {
+            "node": "\ud83d\uddc2 Combine All Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83d\udccb Read: Interviewer Load": {
+      "main": [
+        [
+          {
+            "node": "\ud83d\uddc2 Combine All Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83d\udccb Read: Offer Outcomes": {
+      "main": [
+        [
+          {
+            "node": "\ud83d\uddc2 Combine All Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83d\udccb Read: Pipeline Events": {
+      "main": [
+        [
+          {
+            "node": "\ud83d\uddc2 Combine All Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Offer Output": {
+      "main": [
+        [
+          {
+            "node": "\ud83d\udd00 Merge All Outputs",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Parse Panel Output": {
+      "main": [
+        [
+          {
+            "node": "\ud83d\udd00 Merge All Outputs",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Parse Pipeline Output": {
+      "main": [
+        [
+          {
+            "node": "\ud83d\udd00 Merge All Outputs",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "\u26a1 Optimization Agent": {
+      "main": [
+        [
+          {
+            "node": "\u2705 Final Results Summary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Google Drive (List)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive (List)": {
+      "main": [
+        [
+          {
+            "node": "Google Drive (Download)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive (Download)": {
+      "main": [
+        [
+          {
+            "node": "Switch (Filter Types)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        [
+          {
+            "node": "Format Rows to Text",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch (Filter Types)": {
+      "main": [
+        [
+          {
+            "node": "Extract from File",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Pinecone Vector Store (Docs)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Rows to Text": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File": {
+      "main": [
+        [
+          {
+            "node": "Pinecone Vector Store (Excel)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data Loader (Excel)": {
+      "ai_document": [
+        [
+          {
+            "node": "Pinecone Vector Store (Excel)",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Pinecone Vector Store (Excel)",
+            "type": "ai_embedding",
+            "index": 0
+          },
+          {
+            "node": "Pinecone Vector Store (Docs)",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader": {
+      "ai_document": [
+        [
+          {
+            "node": "Pinecone Vector Store (Docs)",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recursive Character Text Splitter (Docs)": {
+      "ai_textSplitter": [
+        [
+          {
+            "node": "Default Data Loader",
+            "type": "ai_textSplitter",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recursive Character Text Splitter": {
+      "ai_textSplitter": [
+        [
+          {
+            "node": "Data Loader (Excel)",
+            "type": "ai_textSplitter",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83d\udcda RAG Retrieval": {
+      "main": [
+        [
+          {
+            "node": "\ud83c\udfaf Sourcing Quality Agent",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "\ud83d\udd0d Rejection Pattern Agent",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "\u2696\ufe0f  Panel Load Agent",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "\ud83d\udcbc Offer Insights Agent",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "\ud83d\udea6 Pipeline Health Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83c\udf10 Webhook Trigger": {
+      "main": [
+        [
+          {
+            "node": "\ud83d\udccb Read: Sourcing Quality",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "\ud83d\udccb Read: Candidates",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "\ud83d\udccb Read: Interviewer Load",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "\ud83d\udccb Read: Offer Outcomes",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "\ud83d\udccb Read: Pipeline Events",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u2705 Final Results Summary": {
+      "main": [
+        [
+          {
+            "node": "\ud83d\udce4 Webhook Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "97414f8e-1699-4ca3-b33f-1faae5b2f761",
+  "meta": {
+    "instanceId": "76f1edadfc44187b235ad30dca4f13c2c8477f08431c30d661a49fb889397ef5"
+  },
+  "id": "2vvcjaZKv7R738vV",
+  "tags": []
+}
